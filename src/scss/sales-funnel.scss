@@ -1,1 +1,35 @@
 @import "index";
+
+.main-container {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr;
+    gap: 30px;
+}
+
+.funnel {
+    div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    input {
+        text-align: center;
+    }
+}
+
+#clicks-count {
+    width: 85%;
+}
+
+#interested {
+    width: 70%;
+}
+
+#applications-count {
+    width: 55%;
+}
+
+#sales-count {
+    width: 40%;
+}
