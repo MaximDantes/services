@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/quotes.css">
+    <title>Quotes</title>
+</head>
+<body>
+
+<main class="wrapper">
+    <h1>Закавычить-раскавычить Online</h1>
+    <div class="main-container">
+        <div>
+            <p id="input-area-count"></p>
+
+            <textarea id="input-area" placeholder="Введите что будем закавычивать"></textarea>
+
+            <div class="buttons">
+                <div class="button" id="quotes-in-button">Закавычить</div>
+                <div class="button" id="quotes-out-button">Раскавычить</div>
+                <div class="button" id="clear-button">Очистить</div>
+            </div>
+        </div>
+
+
+        <div>
+            <p id="output-area-count"></p>
+
+            <textarea id="output-area" placeholder="Результат закавычивания появится здесь"></textarea>
+
+            <div class="settings">
+                <h3>Настройки</h3>
+
+                <div>
+                    <span>Символ закавычивания строки:</span>
+                    <input type="text" id="quote-char-input" placeholder="Символ закавычивания">
+                </div>
+
+                <div>
+                    <span>Добавлять символ перед каждым словом:</span>
+                    <input type="text" id="char-before-word-input" placeholder="Символ до слова">
+                </div>
+
+                <div>
+                    <span>Добавлять символ после каждого слова:</span>
+                    <input type="text" id="char-after-word-input" placeholder="Символ после слова">
+                </div>
+
+                <div>
+                    <span>Символ разбивки слов (пробел по умолчанию):</span>
+                    <input type="text" id="char-separator-input" placeholder="Символ разбивки слов">
+                </div>
+
+                <div>
+                    <span>Удалять символы или строки из исходной строки:</span>
+                    <input type="text" id="remove-char-input"
+                           placeholder="Символы, которые нужно вырезать (через пробел)">
+                </div>
+
+                <div>
+                    <input type="checkbox" id="large-first-char-input">
+                    <span>Первый символ заглавным (пример -> "Пример")</span>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="minus-words-input">
+                    <span>Исключить минус слова для Яндекс-Директ <br/> Пример: другая строка -слова -> "другая строка"</span>
+                </div>
+            </div>
+        </div>
+
+        <aside>
+            <h4>Закавычить:</h4>
+
+            <p>
+                Сервис позволяет закавычить ключевые слова для директа, например Привет кавычки будет закавычено в
+                "Привет кавычки". Закавычиватель имеет все необходимые настройки.
+                Раскавычиватель работает наоборот.
+            </p>
+
+            <p>
+                Онлайн закавычивание работает мгновенно, умеет считать кол-во символов, ни чего лишнего, даже не нужен
+                Excel, умеет раскавычивать!
+            </p>
+
+            <p>
+                Вместе с вашими пожеланиями и рекомендациями мы сделаем этот «закавычиватель» лучшим!!!
+            </p>
+        </aside>
+    </div>
+
+
+</main>
+
+
+<script src="js/quotes.js" type="module"></script>
+</body>
+</html>

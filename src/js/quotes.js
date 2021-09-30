@@ -54,7 +54,6 @@ const fillSettingsInputs = () => {
 }
 
 const calcCharsCount = () => {
-    debugger
     inputCount.innerText = `Всего символов: ${inputArea.value.length}`
     outputCount.innerText = `Всего символов: ${outputArea.value.length}`
 }

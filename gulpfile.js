@@ -37,15 +37,15 @@ const scss = () => {
             browsers: ['last 2 versions']
         }))
         .pipe(csso())
-        .pipe(concat('index.css'))
-        .pipe(dest('dist'))
+        // .pipe(concat('index.css'))
+        .pipe(dest('dist/css'))
 }
 
 const js = () => {
     return src('src/js/**.js')
         // .pipe(webpackStream({}), webpack)
-        .pipe(concat('index.js'))
-        .pipe(dest('dist'))
+        //.pipe(concat('index.js'))
+        .pipe(dest('dist/js'))
 }
 
 const images = () => {

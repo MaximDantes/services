@@ -1,0 +1,36 @@
+@import "index";
+
+.main-container {
+    display: grid;
+    grid-template-columns: 3fr 3fr 2fr;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+#input-area-count, #output-area-count {
+    text-align: right;
+}
+
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons {
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+aside {
+    h4 {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    p {
+        margin: 20px 0;
+    }
+}

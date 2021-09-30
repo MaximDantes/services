@@ -1,0 +1,77 @@
+@import "nullstyle";
+
+$sm: 768px;
+$md: 992px;
+$lg: 1200px;
+
+$button-color: #48b3c6;
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 1230px;
+    padding: 0 15px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.button {
+    width: 100%;
+    text-align: center;
+    color: $button-color;
+    padding: 10px 15px;
+    border: 1px solid $button-color;
+    font-size: 14px;
+    display: inline-block;
+    transition: all .3s ease;
+
+    &:hover {
+        background: $button-color;
+        color: #ffffff;
+    }
+}
+
+input[type=text], textarea {
+    padding: 5px;
+    margin: 5px 0;
+    border: 1px solid #000000;
+    display: block;
+    width: 100%;
+}
+
+
+textarea {
+    min-height: 250px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 600;
+    margin: 20px;
+}
+
+h3 {
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+
+
+@media (max-width: $md) {
+    .buttons {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: $sm) {
+    .main-container {
+        grid-template-columns: auto;
+    }
+
+    .buttons {
+        grid-template-columns: auto;
+    }
+}
+
