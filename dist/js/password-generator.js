@@ -9,11 +9,11 @@ const uppercaseCheckbox = document.querySelector('#uppercase-checkbox')
 const digitsCheckbox = document.querySelector('#digits-checkbox')
 const specialSymbolsCheckbox = document.querySelector('#special-symbols-checkbox')
 const russianSymbolsCheckbox = document.querySelector('#russian-symbols-checkbox')
-const ownSymbolsCheckbox = document.querySelector('#own-symbols-checkbox')
-const ownSymbolsInput = document.querySelector('#own-symbols-input')
 const passwordSymbolsInput = document.querySelector('#password-symbols-input')
 const passwordsOutput = document.querySelector('#passwords-output')
 const passwordsListOutput = document.querySelector('#passwords-list-output')
+const output = document.querySelector('#output')
+const outputReplace = document.querySelector('#output-replace')
 
 const generatePassword = (symbols, length) => {
     let password = ''
@@ -26,20 +26,16 @@ const generatePassword = (symbols, length) => {
 }
 
 const setSettings = () => {
-    numberCheckbox.checked = false
     lowercaseCheckbox.checked = false
     uppercaseCheckbox.checked = false
     digitsCheckbox.checked = false
     specialSymbolsCheckbox.checked = false
     russianSymbolsCheckbox.checked = false
-    ownSymbolsCheckbox.checked = false
-    numberCheckbox.dispatchEvent(new Event('change'))
     lowercaseCheckbox.dispatchEvent(new Event('change'))
     uppercaseCheckbox.dispatchEvent(new Event('change'))
     digitsCheckbox.dispatchEvent(new Event('change'))
     specialSymbolsCheckbox.dispatchEvent(new Event('change'))
     russianSymbolsCheckbox.dispatchEvent(new Event('change'))
-    ownSymbolsCheckbox.dispatchEvent(new Event('change'))
 
     switch (+strengthSelect.value) {
         case 0:
@@ -98,19 +94,17 @@ const setSettings = () => {
             break
     }
 
-    numberCheckbox.dispatchEvent(new Event('change'))
     lowercaseCheckbox.dispatchEvent(new Event('change'))
     uppercaseCheckbox.dispatchEvent(new Event('change'))
     digitsCheckbox.dispatchEvent(new Event('change'))
     specialSymbolsCheckbox.dispatchEvent(new Event('change'))
     russianSymbolsCheckbox.dispatchEvent(new Event('change'))
-    ownSymbolsCheckbox.dispatchEvent(new Event('change'))
 }
 
-const showPassword = (password) => {
+const showPassword = (password, index) => {
     const pass = document.createElement('div')
     pass.classList.add('password')
-    pass.innerHTML = `<span>1.</span> <span>${password}</span>`
+    pass.innerHTML = `${numberCheckbox.checked ? `${index}. ` : ''}${password}`
 
     passwordsOutput.appendChild(pass)
 
@@ -118,7 +112,6 @@ const showPassword = (password) => {
 }
 
 russianSymbolsCheckbox.addEventListener('change', e => {
-    debugger
     passwordSymbolsInput.value = passwordSymbolsInput.value.replaceAll(/[А-ЯЁ, а-яё]/g, '')
 
     if (e.currentTarget.checked) {
@@ -154,7 +147,6 @@ lowercaseCheckbox.addEventListener('change', e => {
 
 uppercaseCheckbox.addEventListener('change', e => {
     passwordSymbolsInput.value = passwordSymbolsInput.value.replaceAll(/[A-Z, А-ЯЁ]/g, '')
-debugger
     if (e.currentTarget.checked) {
         passwordSymbolsInput.value += 'ZYXWVUTSRQPONMLKJIHGFEDCBA'
 
@@ -177,7 +169,18 @@ strengthSelect.addEventListener('change', setSettings)
 document.addEventListener('DOMContentLoaded', setSettings)
 
 generateButton.addEventListener('click', () => {
+    passwordsOutput.innerHTML = ''
+    passwordsListOutput.value = ''
     for (let i = 0; i < +countInput.value; i++) {
-        showPassword(generatePassword([...passwordSymbolsInput.value], +lengthInput.value))
+        showPassword(generatePassword([...passwordSymbolsInput.value], +lengthInput.value), i + 1)
     }
+    output.classList.remove('hidden')
+    outputReplace.classList.add('hidden')
+})
+
+clearButton.addEventListener('click', () => {
+    passwordsOutput.innerHTML = ''
+    passwordsListOutput.value = ''
+    output.classList.add('hidden')
+    outputReplace.classList.remove('hidden')
 })

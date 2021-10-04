@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/roi.css">
+    <title>Document</title>
+</head>
+<body>
+
+<main class="wrapper">
+
+    <div class="buttons">
+        <button id="add-column-button">Добавить столбец</button>
+        <button id="show-calc-button">Показать рассчеты</button>
+        <button id="calc-button">Посчитать</button>
+    </div>
+
+    <table>
+        <tr>
+            <td>Параметры</td>
+            <td class="output-cell">Бюджетный лендинг</td>
+            <td class="output-cell">Конверсионный лендинг</td>
+        </tr>
+        <tr>
+            <td>Цена лендинга</td>
+            <td class="input-cell"><input type="text" class="price-input" value="15000"></td>
+            <td class="input-cell"><input type="text" class="price-input" value="35000"></td>
+        </tr>
+        <tr>
+            <td>Конверсия продаж (% от 0 до 100)</td>
+            <td class="input-cell"><input type="text" class="conversion-input" value="1.5"></td>
+            <td class="input-cell"><input type="text" class="conversion-input" value="5"></td>
+        </tr>
+    </table>
+
+    <h2>Информация по рекламе</h2>
+
+    <table>
+        <tr>
+            <td>Прогноз количества показов в месяц</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="impression-forecast-input" value="75000"></td>
+        </tr>
+        <tr>
+            <td>Конверсия по кликам (% от 0 до 100)</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="click-conversion-input" value="2"></td>
+        </tr>
+        <tr>
+            <td>Средняя цена клика</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="average-click-price-input" value="3.5"></td>
+        </tr>
+        <tr>
+            <td>Отказы на сайте (% от 0 до 100)</td>
+            <td class="input-cell"><input type="text" class="reject-input" value="20"></td>
+            <td class="input-cell"><input type="text" class="reject-input" value="16"></td>
+        </tr>
+        <tr>
+            <td>Учитывать НДС при пополнении Директ (Adwords)</td>
+            <td class="input-cell colspaned" colspan="2"><input type="checkbox" id="nds-checkbox"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Количество кликов в месяц</td>
+            <td class="output-cell colspaned" colspan="2" id="clicks-count-output"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Останется на сайте</td>
+            <td class="output-cell left-on-site-output"></td>
+            <td class="output-cell left-on-site-output"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Количество продаж</td>
+            <td class="output-cell sales-count-output"></td>
+            <td class="output-cell sales-count-output"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Кликов для достижения цели</td>
+            <td class="output-cell clicks-for-goal-output"></td>
+            <td class="output-cell clicks-for-goal-output"></td>
+        </tr>
+    </table>
+
+    <h2>Товар / услуга</h2>
+
+    <table>
+        <tr>
+            <td>Цена продажи (стоимость товара/услуги)</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="sale-price-input" value="1500"></td>
+        </tr>
+        <tr>
+            <td>Себестоимость(товара/услуги)</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="cost-price-input" value="450"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Средняя цена рекламы на клиента</td>
+            <td class="output-cell ad-price-for-client-output"></td>
+            <td class="output-cell ad-price-for-client-output"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Прибыль с продажи</td>
+            <td class="output-cell profit-for-sale-output"></td>
+            <td class="output-cell profit-for-sale-output"></td>
+        </tr>
+    </table>
+
+    <h2>Результаты (за месяц)</h2>
+
+    <table>
+        <tr class="calc hidden">
+            <td>Доход с продаж</td>
+            <td class="output-cell income-for-sales-output"></td>
+            <td class="output-cell income-for-sales-output"></td>
+        </tr>
+        <tr>
+            <td>Коммерческие и прочие расходы</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="business-expenses-input" value="7000"></td>
+        </tr>
+        <tr>
+            <td>Налоги %</td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="taxes-input" value="6"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Расходы на закупку товара</td>
+            <td class="output-cell expenses-for-goods-purchase-output"></td>
+            <td class="output-cell expenses-for-goods-purchase-output"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Расходы на рекламу</td>
+            <td class="output-cell colspaned" id="ad-price-with-nds-output" colspan="2"></td>
+        </tr>
+        <tr class="calc hidden">
+            <td>Налоговые издержки</td>
+            <td class="output-cell taxes-sum-output"></td>
+            <td class="output-cell taxes-sum-output"></td>
+        </tr>
+        <tr class="result-tr">
+            <td>Прибыль в месяц</td>
+            <td class="output-cell profit-per-month-output"></td>
+            <td class="output-cell profit-per-month-output"></td>
+        </tr>
+        <tr class="result-tr">
+            <td>Окупаемость лэндинга (Дней)</td>
+            <td class="output-cell payback-output"></td>
+            <td class="output-cell payback-output"></td>
+        </tr>
+    </table>
+
+</main>
+
+<script src="js/roi.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+@import "index";
+
+h2 {
+    margin: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+button {
+    max-width: 300px;
+    margin: 10px 10px 10px 0;
+}
+
+table {
+    width: 100%;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    button {
+        margin: 0;
+    }
+
+    input {
+        padding: 0 !important;
+        border: 0 !important;
+        margin: 0 !important;
+        text-align: center !important;
+        background: #00000000 !important;
+    }
+
+    td {
+        border: 1px solid #000;
+        margin: 0;
+        padding: 5px;
+    }
+
+    .input-cell {
+        background: #abd7ff;
+        text-align: center;
+    }
+
+    .output-cell {
+        text-align: center;
+    }
+
+    .result-tr {
+        font-weight: 600;
+    }
+}
