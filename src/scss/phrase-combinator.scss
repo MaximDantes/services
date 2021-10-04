@@ -1,0 +1,42 @@
+@import "index";
+
+.lists {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    textarea {
+        min-height: 150px;
+    }
+
+    .list-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            padding: 0;
+            width: 25px;
+            height: 25px;
+            margin-left: 5px;
+        }
+    }
+}
+
+
+
+.output, .lists {
+    margin: 20px 0;
+}
+
+@media (max-width: $md) {
+    .lists {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: $sm) {
+    .lists {
+        grid-template-columns: auto;
+    }
+}

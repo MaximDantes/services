@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/phrase-combinator.css">
+    <title>Phrase-combinator</title>
+</head>
+<body>
+
+<main class="wrapper">
+    <div class="main-container">
+        <div class="lists">
+
+            <div class="list">
+                <div class="list-title">
+                    <div>
+                        <span>Фразы:</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
+                        <button title="Переместить левее" class="move-left-button"><</button>
+                        <button title="Переместить правее" class="move-right-button">></button>
+                        <button title="Удалить список" class="remove-button">-</button>
+                        <button title="Добавить список" class="add-list-button">+</button>
+                    </div>
+                </div>
+                <div>
+                    <textarea>Один гусь
+Два сапога</textarea>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list-title">
+                    <div>
+                        <span>Фразы:</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
+                        <button title="Переместить левее" class="move-left-button"><</button>
+                        <button title="Переместить правее" class="move-right-button">></button>
+                        <button title="Удалить список" class="remove-button">-</button>
+                        <button title="Добавить список" class="add-list-button">+</button>
+                    </div>
+                </div>
+                <div>
+                    <textarea>белый
+серый
+черный</textarea>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list-title">
+                    <div>
+                        <span>Фразы:</span>
+                    </div>
+                    <div>
+                        <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
+                        <button title="Переместить левее" class="move-left-button"><</button>
+                        <button title="Переместить правее" class="move-right-button">></button>
+                        <button title="Удалить список" class="remove-button">-</button>
+                        <button title="Добавить список" class="add-list-button">+</button>
+                    </div>
+                </div>
+                <div>
+                    <textarea>привет
+пока
+добрый вечер</textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <button id="combine-button">Запустить комбинирование</button>
+
+        <div class="output">
+            <p id="combines-count">Всего возможных комбинаций: 0</p>
+            <textarea id="output-textarea"></textarea>
+        </div>
+    </div>
+</main>
+
+<script src="js/phrase-combinator.js"></script>
+</body>
+</html>

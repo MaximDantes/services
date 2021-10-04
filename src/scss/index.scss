@@ -6,6 +6,10 @@ $lg: 1200px;
 
 $button-color: #48b3c6;
 
+.hidden {
+    display: none !important;
+}
+
 .wrapper {
     margin: 0 auto;
     max-width: 1230px;
@@ -25,6 +29,7 @@ body {
     font-size: 14px;
     display: inline-block;
     transition: all .3s ease;
+    cursor: pointer;
 
     &:hover {
         background: $button-color;
@@ -32,7 +37,25 @@ body {
     }
 }
 
-input[type=text], textarea {
+button {
+    width: 100%;
+    text-align: center;
+    color: $button-color;
+    padding: 10px 15px;
+    border: 1px solid $button-color;
+    font-size: 14px;
+    display: inline-block;
+    transition: all .3s ease;
+    cursor: pointer;
+    background: #ffffff;
+
+    &:hover {
+        background: $button-color;
+        color: #ffffff;
+    }
+}
+
+input[type=text], input[type=password], input[type=number], select, textarea {
     padding: 5px;
     margin: 5px 0;
     border: 1px solid #000000;

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/translit.css">
+    <title>Translit</title>
+</head>
+<body>
+
+<main class="wrapper">
+    <div class="main-container">
+        <div>
+            <textarea id="input-area"></textarea>
+
+            <div class="buttons">
+                <div class="button" id="translit-button">Перевести в транслит</div>
+                <div class="button" id="reverse-translit-button">Обратный транслит</div>
+                <div class="button" id="clear-button">Очистить</div>
+            </div>
+        </div>
+
+        <div>
+            <textarea id="output-area"></textarea>
+
+            <div class="settings">
+                <h3>Настройки</h3>
+
+                <div>
+                    <input type="radio" id="lower-case" name="case-radio">
+                    <span>Переводить результаты в нижний регистр</span>
+                </div>
+
+                <div>
+                    <input type="radio" id="upper-case" name="case-radio">
+                    <span>Переводить результаты в верхний регистр</span>
+                </div>
+
+                <div>
+                    <input type="radio" name="case-radio" checked>
+                    <span>Не изменять регистр регистр</span>
+                </div>
+
+                <div>
+                    <span>Заменять пробел на</span>
+                    <input type="text" id="whitespace" value=" ">
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="js/translit.js"></script>
+</body>
+</html>

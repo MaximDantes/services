@@ -1,0 +1,52 @@
+@import "index";
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.input {
+    div {
+        margin: 10px 0;
+    }
+}
+
+.field-with-delete {
+    margin: 10px 0;
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
+
+    div {
+        width: 100%;
+    }
+
+    textarea {
+        min-height: 100px;
+    }
+}
+
+#select-options {
+    .options-buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    #options {
+        div {
+            display: flex;
+        }
+    }
+}
+
+@media (max-width: $md) {
+    .main-container {
+        grid-template-columns: auto;
+    }
+}
