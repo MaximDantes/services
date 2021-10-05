@@ -12,10 +12,28 @@
 
 <main class="wrapper">
 
+    @@include('html/breadcrumbs.html')
+
+    <h1>Калькулятор ROI сайта онлайн <br/>Как посчитать конверсию сайта?</h1>
+
+    <div class="description">
+        <p><strong>ROI</strong> - показатель, показывающий уровень доходности или убыточности бизнеса, учитывая вложения
+            сделанных в этот
+            бизнес.</p>
+
+        <p>Не знаете как <strong>посчитать конверсию сайта</strong>? Наш калькулятор ROI сайта поможет Вам в этом. С
+            помощью калькулятора
+            можно рассчитать конверсию интернет магазина, Landing Page (Лэндинга), определить и оценить доходность с
+            сайта,
+            сравнить его по различным параметрам, посчитать прогноз и конверсию продаж и расходов. Удобный <strong>расчет
+                конверсии сайта</strong> от студии «Askerweb»!</p>
+
+        <p> Можете восспользоваться упрощенной <a href="sales-funnel.html">интернет воронкой продаж</a></p>
+    </div>
+
     <div class="buttons">
         <button id="add-column-button">Добавить столбец</button>
         <button id="show-calc-button">Показать рассчеты</button>
-        <button id="calc-button">Посчитать</button>
     </div>
 
     <table>
@@ -41,7 +59,8 @@
     <table>
         <tr>
             <td>Прогноз количества показов в месяц</td>
-            <td class="input-cell colspaned" colspan="2"><input type="text" id="impression-forecast-input" value="75000"></td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="impression-forecast-input"
+                                                                value="75000"></td>
         </tr>
         <tr>
             <td>Конверсия по кликам (% от 0 до 100)</td>
@@ -49,7 +68,8 @@
         </tr>
         <tr>
             <td>Средняя цена клика</td>
-            <td class="input-cell colspaned" colspan="2"><input type="text" id="average-click-price-input" value="3.5"></td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="average-click-price-input" value="3.5">
+            </td>
         </tr>
         <tr>
             <td>Отказы на сайте (% от 0 до 100)</td>
@@ -85,11 +105,11 @@
 
     <table>
         <tr>
-            <td>Цена продажи (стоимость товара/услуги)</td>
+            <td>Цена продажи (стоимость товара / услуги)</td>
             <td class="input-cell colspaned" colspan="2"><input type="text" id="sale-price-input" value="1500"></td>
         </tr>
         <tr>
-            <td>Себестоимость(товара/услуги)</td>
+            <td>Себестоимость (товара / услуги)</td>
             <td class="input-cell colspaned" colspan="2"><input type="text" id="cost-price-input" value="450"></td>
         </tr>
         <tr class="calc hidden">
@@ -114,7 +134,8 @@
         </tr>
         <tr>
             <td>Коммерческие и прочие расходы</td>
-            <td class="input-cell colspaned" colspan="2"><input type="text" id="business-expenses-input" value="7000"></td>
+            <td class="input-cell colspaned" colspan="2"><input type="text" id="business-expenses-input" value="7000">
+            </td>
         </tr>
         <tr>
             <td>Налоги %</td>
@@ -148,6 +169,6 @@
 
 </main>
 
-<script src="js/roi.js"></script>
+<script src="js/roi.js" type="module"></script>
 </body>
 </html>

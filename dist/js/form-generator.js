@@ -15,29 +15,33 @@ const checkboxCheckedInput = document.querySelector('#checkbox-checked-input')
 const checkboxOptions = document.querySelector('#checkbox-options')
 const htmlTextarea = document.querySelector('#html-textarea')
 const jsTextarea = document.querySelector('#js-textarea')
+const phpTextarea = document.querySelector('#php-textarea')
 const requiredBlock = document.querySelector('#required-block')
 
 const fieldsGenerator = {
     fields: [],
+    names: [],
 
     removeField(index) {
         this.fields.splice(index, 1)
     },
 
     createTextField(label, name, value, required) {
-        const field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<input type="text" name="${name}" value="${value}"${required ? ' required' : ''}>\n\t</div>\n`
+        const field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<input type="text" name="${name}" id="${name}" value="${value}"${required ? ' required' : ''}>\n\t</div>\n`
 
         this.fields.push(field)
+        this.names.push(name)
     },
 
     createTextarea(label, name, value, required) {
-        const field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<textarea name="${name}"${required ? ' required' : ''}>${value}</textarea>\n\t</div>\n`
+        const field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<textarea id="${name}" name="${name}"${required ? ' required' : ''}>${value}</textarea>\n\t</div>\n`
 
         this.fields.push(field)
+        this.names.push(name)
     },
 
     createSelect(label, name, value, selectOptions) {
-        let field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<select name="${name}">`
+        let field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<select name="${name}" id="${name}">`
 
         selectOptions.map(item => {
             field += `\n\t\t\t<option value="${item}"${(item === value) ? ' selected' : ''}>${item}</option>`
@@ -46,18 +50,21 @@ const fieldsGenerator = {
         field += '\n\t\t</select>\n\t</div>\n'
 
         this.fields.push(field)
+        this.names.push(name)
     },
 
     createCheckbox(label, name, checked) {
-        const field = `\n\t<div class="field">\n\t\t<input type="checkbox" name="${name}"${checked ? ' checked' : ''}>\n\t\t<label for="${name}">${label}</label>\n\t</div>\n`
+        const field = `\n\t<div class="field">\n\t\t<input type="checkbox" id="${name}" name="${name}"${checked ? ' checked' : ''}>\n\t\t<label for="${name}">${label}</label>\n\t</div>\n`
 
         this.fields.push(field)
+        this.names.push(name)
     },
 
     createPasswordField(label, name, value, required) {
-        const field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<input type="password" name="${name}" value="${value}"${required ? ' required' : ''}>\n\t</div>\n`
+        const field = `\n\t<div class="field">\n\t\t<label for="${name}">${label}</label>\n\t\t<input type="password" id="${name}" name="${name}" value="${value}"${required ? ' required' : ''}>\n\t</div>\n`
 
         this.fields.push(field)
+        this.names.push(name)
     }
 }
 
@@ -85,12 +92,16 @@ const fillFieldsOutput = () => {
     fieldsGenerator.fields.map(item => html += item)
     html += '\n\t<button type="submit">Отправить</button>\n</form>'
 
-    let js = 'const feedbackForm = document.querySelector("#feedback-from") \n\nfeedbackForm.addEventListener("submit", async (e) => {\n\te.preventDefault()\n\n\tawait fetch("send.php", {\n\t\tbody: new FormData(feedbackForm), \n\t\tmethod: "post"\n\t})\n})'
+    let js = 'const feedbackForm = document.querySelector("#feedback-from") \n\nfeedbackForm.addEventListener("submit", async (e) => {\n\te.preventDefault()\n\n\tawait fetch("http://activebox/mail.php", {\n\t\tbody: new FormData(feedbackForm), \n\t\tmethod: "post"\n\t})\n})'
+
+    let php = '<?php\n\n'
+    fieldsGenerator.names.map(item => {
+        php += `$${item} = $_POST["${item}"];\n`
+    })
 
     htmlTextarea.value = html
     jsTextarea.value = js
-
-    //TODO php
+    phpTextarea.value = php
 }
 
 

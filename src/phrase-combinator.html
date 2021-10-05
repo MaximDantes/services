@@ -11,76 +11,87 @@
 <body>
 
 <main class="wrapper">
-    <div class="main-container">
-        <div class="lists">
+    @@include('html/breadcrumbs.html')
 
-            <div class="list">
-                <div class="list-title">
-                    <div>
-                        <span>Фразы:</span>
+    <h1>Комбинатор фраз, слов, предложений</h1>
+
+    <div class="main-container">
+        <div>
+            <div class="lists">
+
+                <div class="list">
+                    <div class="list-title">
+                        <div>
+                            <span>Фразы:</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
+                            <button title="Переместить левее" class="move-left-button"><</button>
+                            <button title="Переместить правее" class="move-right-button">></button>
+                            <button title="Удалить список" class="remove-button">-</button>
+                            <button title="Добавить список" class="add-list-button">+</button>
+                        </div>
                     </div>
                     <div>
-                        <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
-                        <button title="Переместить левее" class="move-left-button"><</button>
-                        <button title="Переместить правее" class="move-right-button">></button>
-                        <button title="Удалить список" class="remove-button">-</button>
-                        <button title="Добавить список" class="add-list-button">+</button>
-                    </div>
-                </div>
-                <div>
                     <textarea>Один гусь
 Два сапога</textarea>
+                    </div>
                 </div>
-            </div>
 
-            <div class="list">
-                <div class="list-title">
-                    <div>
-                        <span>Фразы:</span>
+                <div class="list">
+                    <div class="list-title">
+                        <div>
+                            <span>Фразы:</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
+                            <button title="Переместить левее" class="move-left-button"><</button>
+                            <button title="Переместить правее" class="move-right-button">></button>
+                            <button title="Удалить список" class="remove-button">-</button>
+                            <button title="Добавить список" class="add-list-button">+</button>
+                        </div>
                     </div>
                     <div>
-                        <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
-                        <button title="Переместить левее" class="move-left-button"><</button>
-                        <button title="Переместить правее" class="move-right-button">></button>
-                        <button title="Удалить список" class="remove-button">-</button>
-                        <button title="Добавить список" class="add-list-button">+</button>
-                    </div>
-                </div>
-                <div>
                     <textarea>белый
 серый
 черный</textarea>
+                    </div>
                 </div>
-            </div>
 
-            <div class="list">
-                <div class="list-title">
-                    <div>
-                        <span>Фразы:</span>
+                <div class="list">
+                    <div class="list-title">
+                        <div>
+                            <span>Фразы:</span>
+                        </div>
+                        <div>
+                            <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
+                            <button title="Переместить левее" class="move-left-button"><</button>
+                            <button title="Переместить правее" class="move-right-button">></button>
+                            <button title="Удалить список" class="remove-button">-</button>
+                            <button title="Добавить список" class="add-list-button">+</button>
+                        </div>
                     </div>
                     <div>
-                        <input type="checkbox" title="Использовать в генерации" class="use-checkbox" checked>
-                        <button title="Переместить левее" class="move-left-button"><</button>
-                        <button title="Переместить правее" class="move-right-button">></button>
-                        <button title="Удалить список" class="remove-button">-</button>
-                        <button title="Добавить список" class="add-list-button">+</button>
-                    </div>
-                </div>
-                <div>
                     <textarea>привет
 пока
 добрый вечер</textarea>
+                    </div>
                 </div>
+
             </div>
 
+            <button id="combine-button">Запустить комбинирование</button>
+
+            <div class="output">
+                <p id="combines-count">Всего возможных комбинаций: 0</p>
+                <textarea id="output-textarea"></textarea>
+            </div>
         </div>
 
-        <button id="combine-button">Запустить комбинирование</button>
-
-        <div class="output">
-            <p id="combines-count">Всего возможных комбинаций: 0</p>
-            <textarea id="output-textarea"></textarea>
-        </div>
+        <aside>
+            <p>Бесплатный онлайн комбинатор предложений фраз из слов, предложений и букв, комбинатор ключевых фраз,
+                составление комбинаций на лету. Каждый новый вариант фразы или слова вводите с новой строки.</p>
+        </aside>
     </div>
 </main>
 

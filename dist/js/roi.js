@@ -1,9 +1,10 @@
+import createReport from './roi-algoritm.js'
+
 const tables = document.querySelectorAll('table')
 const colspaned = document.querySelectorAll('.colspaned')
 const calcRows = document.querySelectorAll('.calc')
 const addColumnButton = document.querySelector('#add-column-button')
 const showCalcButton = document.querySelector('#show-calc-button')
-const calcButton = document.querySelector('#calc-button')
 let priceInputs = document.querySelectorAll('.price-input')
 let conversionInputs = document.querySelectorAll('.conversion-input')
 const impressionForecastInput = document.querySelector('#impression-forecast-input')
@@ -27,29 +28,32 @@ const adPriceWithNdsOutput = document.querySelector('#ad-price-with-nds-output')
 let taxesSumOutputs = []
 let profitPerMonthOutputs = []
 let paybackOutputs = []
+const inputs = document.querySelectorAll('input')
 
 let isCalcVisible = false
 let columnsCount = 2
 
-const createReport = (price, conversion, impressionForecast, clickConversion, clickPrice,
-                      reject, useNds, salePrice, costPrice, businessExpenses, taxes) => {
 
-    const clicksCount = impressionForecast * clickConversion / 100
-    const leftOnSite = clicksCount * (100 - reject) / 100
-    const salesCount = leftOnSite * conversion / 100
-    const clicksForGoalCount = Math.round(100 / conversion)
-    const adPriceForClient = clickPrice * clicksForGoalCount
-    const profitForSale = salePrice - costPrice - adPriceForClient
-    const incomeForSale = salesCount * salePrice
-    const expansesForGoodsPurchase = salesCount * costPrice
-    let adPrice = clicksCount * clickPrice
-    if (useNds) adPrice *= 1.2
-    const taxesSum = incomeForSale * taxes / 100
-    const profitPerMonth = incomeForSale - businessExpenses - taxesSum - expansesForGoodsPurchase - adPrice
-    const payback = Math.ceil(price / profitPerMonth * 30)
+const fillOutputs = () => {
+    debugger
+    for (let i = 0; i < columnsCount; i++) {
+        const report = createReport(priceInputs[i].value, conversionInputs[i].value, impressionForecastInput.value,
+            clickConversionInput.value, averageClickPriceInput.value, rejectInputs[i].value, ndsCheckbox.checked, salePriceInput.value,
+            costPriceInput.value, businessExpensesInput.value, taxesInput.value)
 
-    return { clicksCount, leftOnSite, salesCount, clicksForGoalCount, adPriceForClient, profitForSale, incomeForSale,
-    expansesForGoodsPurchase, adPrice, taxesSum, profitPerMonth, payback}
+        clicksCountOutput.innerText = report.clicksCount
+        leftOnSiteOutputs[i].innerText = report.leftOnSite
+        salesCountOutputs[i].innerText = report.salesCount
+        clicksForGoalOutputs[i].innerText = report.clicksForGoalCount
+        adPriceForClientOutputs[i].innerText = report.adPriceForClient
+        profitForSaleOutputs[i].innerText = report.profitForSale
+        incomeForSaleOutputs[i].innerText = report.incomeForSale
+        expansesForGoodsPurchaseOutputs[i].innerText = report.expansesForGoodsPurchase
+        adPriceWithNdsOutput.innerText = report.adPrice
+        taxesSumOutputs[i].innerText = report.taxesSum
+        profitPerMonthOutputs[i].innerText = report.profitPerMonth
+        paybackOutputs[i].innerText = report.payback
+    }
 }
 
 const getInputsAndOutputs = () => {
@@ -70,6 +74,12 @@ const getInputsAndOutputs = () => {
 
 document.addEventListener('DOMContentLoaded', () => {
     getInputsAndOutputs()
+
+    inputs.forEach(item => {
+        item.addEventListener('keyup', fillOutputs)
+    })
+
+    fillOutputs()
 })
 
 addColumnButton.addEventListener('click', () => {
@@ -84,7 +94,7 @@ addColumnButton.addEventListener('click', () => {
     const removeTd = document.createElement('td')
     const button = document.createElement('button')
     button.innerText = 'Удалить'
-    button.addEventListener('click', () => {
+    button.addEventListener('keyup', () => {
         columnsCount--
 
         elements.map(item => {
@@ -104,6 +114,7 @@ addColumnButton.addEventListener('click', () => {
         td.classList.add('input-cell')
         td.innerHTML = `<input type="text" class="${type}">`
         tables[table].children[0].children[position].appendChild(td)
+        td.children[0].addEventListener('change', fillOutputs)
         elements.push(td)
     }
     const createOutput = (type, table, position) => {
@@ -143,26 +154,4 @@ showCalcButton.addEventListener('click', () => {
     calcRows.forEach(item => {
         item.classList.toggle('hidden')
     })
-})
-
-calcButton.addEventListener('click', () => {
-    debugger
-    for (let i = 0; i < columnsCount; i++) {
-        const report = createReport(priceInputs[i].value, conversionInputs[i].value, impressionForecastInput.value,
-            clickConversionInput.value, averageClickPriceInput.value, rejectInputs[i].value, ndsCheckbox.checked, salePriceInput.value,
-            costPriceInput.value, businessExpensesInput.value, taxesInput.value)
-
-            clicksCountOutput.innerText = report.clicksCount
-            leftOnSiteOutputs[i].innerText = report.leftOnSite
-            salesCountOutputs[i].innerText = report.salesCount
-            clicksForGoalOutputs[i].innerText = report.clicksForGoalCount
-            adPriceForClientOutputs[i].innerText = report.adPriceForClient
-            profitForSaleOutputs[i].innerText = report.profitForSale
-            incomeForSaleOutputs[i].innerText = report.incomeForSale
-            expansesForGoodsPurchaseOutputs[i].innerText = report.expansesForGoodsPurchase
-            adPriceWithNdsOutput.innerText = report.adPrice
-            taxesSumOutputs[i].innerText = report.taxesSum
-            profitPerMonthOutputs[i].innerText = report.profitPerMonth
-            paybackOutputs[i].innerText = report.payback
-    }
 })

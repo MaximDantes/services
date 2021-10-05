@@ -1,1 +1,9 @@
 @import "index";
+
+.main-container {
+    grid-template-columns: 3fr 1fr;
+}
+
+button {
+    max-width: 200px !important;
+}

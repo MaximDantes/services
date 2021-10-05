@@ -1,0 +1,18 @@
+@import "index";
+
+.output {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.main-container {
+    grid-template-columns: 4fr 1fr;
+}
+
+button {
+    max-width: 200px;
+}
+
+.error {
+    color: #f00;
+}

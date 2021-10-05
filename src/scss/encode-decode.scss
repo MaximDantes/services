@@ -1,0 +1,23 @@
+@import "index";
+
+.main-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+textarea:not(#input) {
+    min-height: 150px;
+    resize: none;
+}
+
+#input {
+    min-height: 300px;
+    resize: none;
+}
+
+@media (max-width: $md) {
+    .main-container {
+        grid-template-columns: auto;
+    }
+}

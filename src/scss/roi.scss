@@ -7,20 +7,27 @@ h2 {
     text-align: center;
 }
 
-button {
-    max-width: 300px;
-    margin: 10px 10px 10px 0;
+.description {
+    max-width: $sm;
+    margin: 0 auto;
+}
+
+.buttons {
+    display: flex;
+    padding: 10px 0;
+    gap: 10px;
+
+    button {
+        max-width: 200px;
+    }
 }
 
 table {
+    min-width: 400px;
     width: 100%;
     border: 1px solid #000;
     border-collapse: collapse;
     table-layout: fixed;
-
-    button {
-        margin: 0;
-    }
 
     input {
         padding: 0 !important;

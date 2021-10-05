@@ -1,13 +1,12 @@
 @import "index";
 
 .main-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 textarea {
     resize: vertical;
+    min-height: 150px;
 }
 
 .input {

@@ -3,11 +3,20 @@
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 30px;
+}
+
+.buttons {
+    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.input-block {
+    margin: 10px 0;
 }
 
 @media (max-width: $md) {
-    .main-container {
+    .buttons {
         grid-template-columns: auto;
     }
 }

@@ -11,6 +11,10 @@
 <body>
 
 <main class="wrapper">
+    @@include('html/breadcrumbs.html')
+
+    <h1>Генератор кода HTML форм онлайн</h1>
+
     <div class="main-container">
         <div class="input">
             <div>
@@ -40,8 +44,8 @@
                 <span>Возможные значения (option)</span>
                 <input type="text" id="select-options-input">
                 <div class="options-buttons">
-                    <div class="button" id="add-option-button">Добавить вариант</div>
-                    <div class="button" id="clear-options">Очистить варианты</div>
+                    <button id="add-option-button">Добавить вариант</button>
+                    <button id="clear-options">Очистить варианты</button>
                 </div>
             </div>
 
@@ -60,7 +64,7 @@
                 <span>Обязательное</span>
             </div>
 
-            <div class="button" id="add-field-button">Добавить поле</div>
+            <button id="add-field-button">Добавить поле</button>
 
             <div id="fields">
             </div>
@@ -83,6 +87,12 @@
                 <textarea id="php-textarea"></textarea>
             </div>
         </div>
+
+        <aside>
+            <p>Бесплатный онлайн генератор HTML форм позволит легко и быстро генерировать html код-заготовку: для формы
+                обратной связи, анкеты для сайта, формы подписки, формы заказа и т.д. Визуальный генератор форм облегчит
+                жизнь вэб программисту.</p>
+        </aside>
     </div>
 </main>
 

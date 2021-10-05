@@ -1,5 +1,13 @@
 @import "index";
 
+.main-container {
+    grid-template-columns: 4fr 1fr;
+}
+
+button {
+    max-width: 300px;
+}
+
 .lists {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

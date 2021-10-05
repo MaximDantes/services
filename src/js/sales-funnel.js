@@ -1,3 +1,5 @@
+import calcRoi from './roi-algoritm.js'
+
 const averageReceiptInput = document.querySelector('#average-receipt')
 const priceInput = document.querySelector('#price')
 const ctrInput = document.querySelector('#ctr')
@@ -17,6 +19,7 @@ const netProfitInput = document.querySelector('#net-profit')
 const applicationPriceInput = document.querySelector('#application-price')
 const clientPriceInput = document.querySelector('#client-price')
 const profitabilityInput = document.querySelector('#profitability')
+const roiInput = document.querySelector('#roi')
 
 const calcReport = (queriesCount, averageReceipt, price, ctr, applicationConversion, applicationConversionToOrder,
                     clickPrice, rejectsPercent) => {
@@ -26,17 +29,20 @@ const calcReport = (queriesCount, averageReceipt, price, ctr, applicationConvers
     const applicationsCount = Math.floor(interestedCount * applicationConversion)
     const salesCount = Math.floor(applicationsCount * applicationConversionToOrder)
 
-    const addBudget = clicksCount * clickPrice * 1.18
+    const addBudget = clicksCount * clickPrice * 1.2
     const salesPrice = salesCount * price
     const salesSum = salesCount * averageReceipt
     const netProfit = salesSum - salesPrice - addBudget
     const applicationPrice = Math.round(addBudget / applicationsCount)
     const clientPrice = Math.round(addBudget / salesCount)
     const profitability = (averageReceipt - price) / averageReceipt
+    const roi = calcRoi(salesPrice, applicationConversionToOrder * 100, queriesCount, clickPrice, ctr * 100,
+        rejectsPercent * 100, true, price, price, addBudget, 0).profitPerMonth
+
 
     return {
         clicksCount, interestedCount, applicationsCount, salesCount, addBudget, salesPrice, salesSum,
-        netProfit, applicationPrice, clientPrice, profitability
+        netProfit, applicationPrice, clientPrice, profitability, roi
     }
 }
 
@@ -57,6 +63,7 @@ const fillInputs = () => {
     applicationPriceInput.value = output.applicationPrice
     clientPriceInput.value = output.clientPrice
     profitabilityInput.value = output.profitability * 100
+    roiInput.value = output.roi
 }
 
 queriesCountInput.addEventListener('input', fillInputs)
@@ -67,6 +74,4 @@ applicationConversionInput.addEventListener('input', fillInputs)
 applicationConversionToOrderInput.addEventListener('input', fillInputs)
 clickPriceInput.addEventListener('input', fillInputs)
 rejectsPercentInput.addEventListener('input', fillInputs)
-
-
-//console.log(calcReport(3200, 4320, 1234, 0.05, 0.12, 0.5, 21, 0.32))
+document.addEventListener('DOMContentLoaded', fillInputs)

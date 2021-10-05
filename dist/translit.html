@@ -6,24 +6,32 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/translit.css">
-    <title>Translit</title>
+    <title>Транслит онлайн</title>
 </head>
 <body>
 
 <main class="wrapper">
+    <div class="breadcrumbs">
+    <span><a href="..">Все сервисы</a></span>
+    <span>></span>
+    <span>whois проверка домена</span>
+</div>
+
+    <h1>Транслит онлайн</h1>
+
     <div class="main-container">
         <div>
-            <textarea id="input-area"></textarea>
+            <textarea id="input-area" placeholder="Введите, что будем переводить"></textarea>
 
             <div class="buttons">
-                <div class="button" id="translit-button">Перевести в транслит</div>
-                <div class="button" id="reverse-translit-button">Обратный транслит</div>
-                <div class="button" id="clear-button">Очистить</div>
+                <button id="translit-button">Перевести в транслит</button>
+                <button id="reverse-translit-button">Обратный транслит</button>
+                <button id="clear-button">Очистить</button>
             </div>
         </div>
 
         <div>
-            <textarea id="output-area"></textarea>
+            <textarea id="output-area" placeholder="Здесь появится результат транслита"></textarea>
 
             <div class="settings">
                 <h3>Настройки</h3>
@@ -43,13 +51,24 @@
                     <span>Не изменять регистр регистр</span>
                 </div>
 
-                <div>
+                <div class="input-block">
                     <span>Заменять пробел на</span>
                     <input type="text" id="whitespace" value=" ">
                 </div>
 
             </div>
         </div>
+
+        <aside>
+            <h4>Транслит онлайн</h4>
+
+            <p>Перевод текста с русского на английский</p>
+
+            <p>Онлайн транслитерация работает мгновенно, транслирует согласно правилам Яндекса, умеет считать кол-во
+                символов, ни чего лишнего!</p>
+
+            <p>Вместе с вашими пожеланиями и рекомендациями мы сделаем этот транслит лучшим!!!</p>
+        </aside>
     </div>
 </main>
 

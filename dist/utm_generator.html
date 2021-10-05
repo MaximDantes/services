@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/utm_generator.css">
+    <title>UTM</title>
+</head>
+<body>
+
+<main class="wrapper">
+    <div class="breadcrumbs">
+    <span><a href="..">Все сервисы</a></span>
+    <span>></span>
+    <span>whois проверка домена</span>
+</div>
+
+    <h1>Генератор utm меток для Яндекс и Goggle</h1>
+
+    <div class="main-container">
+
+        <div>
+            <div>
+                <span>Готовые шалоны UTM</span>
+                <select id="template-select">
+                    <option value="default">Произвольно</option>
+                    <option value="direct">Яндекс.Директ</option>
+                    <option value="awards">Google Awards</option>
+                    <option value="vk">Таргетинг ВКонтакте</option>
+                    <option value="mail">Таргет@Mail.ru</option>
+                </select>
+            </div>
+
+            <div>
+                <span>Адрес страницы</span>
+                <input type="text" id="url-input" value="vk.com"/>
+            </div>
+
+            <div>
+                <span>Источник рекламной компании utm_source</span>
+                <input type="text" id="source-input" value="vk"/>
+            </div>
+
+            <div>
+                <span>Тип рекламной компании utm_medium</span>
+                <input type="text" id="medium-input" value="vk"/>
+            </div>
+
+            <div>
+                <span>Название рекламной кампании utm_campaign</span>
+                <input type="text" id="campaign-input" value="company"/>
+            </div>
+
+            <div>
+                <span>Идентификатор объявления utm_content</span>
+                <input type="text" id="content-input" value="ad"/>
+            </div>
+
+            <div>
+                <span>Ключевое слово в кампании utm_term</span>
+                <input type="text" id="term-input" value="keyword"/>
+            </div>
+
+            <div>
+                <span>Быстрая ссылка</span>
+                <input type="text" id="fast-link-input" value="vk"/>
+            </div>
+        </div>
+
+        <div>
+            <span>Ваша UTM метка:</span>
+            <textarea id="output"></textarea>
+        </div>
+
+        <div>
+            <p>Наш простой и удобный компоновщик - генератор UTM меток позволит легко и быстро сформировать и настроить
+            UTM метки для <a href="https://askerweb.by/nastroika-kontekstnoi-reklamy/" target="_blank">ведения ваших рекламных компаний в Яндекс-Директ и Google Adwrods.</a></p>
+
+            <p>Вместе с вашими пожеланиями и рекомендациями мы сделаем этот «генератор UTM меток» лучшим!!!</p>
+        </div>
+
+    </div>
+</main>
+
+<script src="js/utm_generator.js"></script>
+</body>
+</html>

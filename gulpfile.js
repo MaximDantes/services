@@ -42,8 +42,8 @@ const scss = () => {
 }
 
 const js = () => {
-    return src('src/js/**.js')
-        // .pipe(webpackStream({}), webpack)
+    return src('src/js/**.+(js|mjs)')
+        //.pipe(webpackStream({}), webpack)
         //.pipe(concat('index.js'))
         .pipe(dest('dist/js'))
 }

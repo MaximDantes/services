@@ -5,9 +5,51 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/encode-decode.css">
     <title>Encode | Decode</title>
 </head>
 <body>
 
+<main class="wrapper">
+    <div class="breadcrumbs">
+    <span><a href="..">Все сервисы</a></span>
+    <span>></span>
+    <span>whois проверка домена</span>
+</div>
+
+    <h1>URLEncode и URLDecode Online</h1>
+
+    <div class="main-container">
+        <div>
+            <span>Текст который нужно закодировать или раскодировать</span>
+            <textarea id="input"></textarea>
+        </div>
+
+        <div>
+            <div>
+                <span>Закодированный текст в кодировке UTF-8</span>
+                <textarea id="utf-output"></textarea>
+            </div>
+            <div>
+                <span>Закодированный текст в кодировке windows-1251</span>
+                <textarea id="win-output"></textarea>
+            </div>
+            <div>
+                <span>Текст закодированные функцией escape() браузером IE</span>
+                <textarea id="escape-output"></textarea>
+            </div>
+        </div>
+
+        <aside>
+            <p>Введите или скопируйте текст в соответствующую область, кодировка(URLEncode) или раскодировка(URLDecode)
+            будет выполнена автоматически.</p>
+
+            <p>Простой и удобный <strong>URLEncode и URLDecode онлайн</strong> - быстро, удобно, адаптивно.</p>
+        </aside>
+
+    </div>
+</main>
+
+<script src="js/encode-decode.js" type="module"></script>
 </body>
 </html>
