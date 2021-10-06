@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/text-generator.css">
+    <title>Document</title>
+</head>
+<body>
+
+<main class="wrapper">
+    <div class="breadcrumbs">
+    <span><a href="..">Все сервисы</a></span>
+    <span>></span>
+    <span>whois проверка домена</span>
+</div>
+
+    <h1>Генератор текста</h1>
+
+    <div class="main-container">
+
+        <div>
+            <textarea id="output"></textarea>
+            <button id="get-text-button">Генерировать новый текст</button>
+        </div>
+
+        <div>
+            <h3>Настройки</h3>
+
+            <div>
+                <span>Язык</span>
+                <select id="language-select">
+                    <option value="ru">Русский</option>
+                    <option value="eng">Английский</option>
+                </select>
+            </div>
+
+            <div>
+                <span>Количество абзацев</span>
+                <input type="number" id="paragraph-count-input" value="3">
+            </div>
+
+            <div>
+                <span>Минимум символов в абзаце</span>
+                <input type="number" id="min-symbols-count-input" value="200">
+            </div>
+
+            <div>
+                <span>Максимум символов в абзаце</span>
+                <input type="number" id="max-symbols-count-input" value="300">
+            </div>
+
+            <div>
+                <span>Символ перед каждым абзацем</span>
+                <input type="text" id="before-symbol-input" placeholder="Например <p>">
+            </div>
+
+            <div>
+                <span>Символ после каждого абзаца</span>
+                <input type="text" id="after-symbol-input" placeholder="Например </p>">
+            </div>
+
+            <div>
+                <input type="radio" name="case-radio" checked>
+                <span>Не изменять регистр</span>
+            </div>
+            <div>
+                <input type="radio" name="case-radio" id="lowercase-radio">
+                <span>Перевести в нижний регистр</span>
+            </div>
+            <div>
+                <input type="radio" name="case-radio" id="uppercase-radio">
+                <span>Перевести в верхний регистр</span>
+            </div>
+        </div>
+
+        <aside>
+            <p>
+                <strong>Генератор текста (рыба текст, lorem ipsum или бредогенератор)</strong> позволяет быстро
+                генерировать текст для
+                дизайн макета, поддерживает несколько режимов, имеет все необходимые настройки, причем все они
+                сохраняются для Вас, это обеспечивает максимально удобную и быструю работу.
+            </p>
+            <p>
+                Удобный генератор текста онлайн позволяет сгенерировать текст на русском языке для вашего сайта. Lorem
+                ipsum - или генератор текста, так называемая рыба текст.
+            </p>
+        </aside>
+    </div>
+</main>
+
+<script src="js/text-generator.js" type="module"></script>
+</body>
+</html>

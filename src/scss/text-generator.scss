@@ -1,0 +1,9 @@
+@import "index";
+
+.main-container {
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+textarea {
+    resize: vertical;
+}

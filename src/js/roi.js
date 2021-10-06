@@ -35,7 +35,6 @@ let columnsCount = 2
 
 
 const fillOutputs = () => {
-    debugger
     for (let i = 0; i < columnsCount; i++) {
         const report = createReport(priceInputs[i].value, conversionInputs[i].value, impressionForecastInput.value,
             clickConversionInput.value, averageClickPriceInput.value, rejectInputs[i].value, ndsCheckbox.checked, salePriceInput.value,
@@ -94,7 +93,7 @@ addColumnButton.addEventListener('click', () => {
     const removeTd = document.createElement('td')
     const button = document.createElement('button')
     button.innerText = 'Удалить'
-    button.addEventListener('keyup', () => {
+    button.addEventListener('click', () => {
         columnsCount--
 
         elements.map(item => {

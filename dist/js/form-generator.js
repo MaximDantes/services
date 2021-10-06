@@ -83,7 +83,7 @@ const fillFieldsOutput = () => {
         fieldsList.innerHTML += `<div>
             <div class="field-with-delete">
                 ${item}
-                <img src="img/delete.svg" onclick="removeField(${i})"/>
+                <img src="${themePath.templateUrl}/assets/img/delete.svg" onclick="removeField(${i})"/>
             </div>
         </div>`
     })
@@ -178,7 +178,7 @@ addOptionButton.addEventListener('click', () => {
     if (selectOptionsInput.value) {
         options.innerHTML += `<div class="options-item" id="option-item${options.children.length + 2}">
             <input type="text" value="${selectOptionsInput.value}"/>
-            <img src="img/delete.svg" alt="remove" onclick="removeOption(${options.children.length + 2})">
+            <img src="${themePath.templateUrl}/assets/img/delete.svg" alt="remove" onclick="removeOption(${options.children.length + 2})">
         </div>`
 
         selectOptionsInput.value = ''

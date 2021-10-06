@@ -6,6 +6,6 @@ const output = document.querySelector('#output')
 
 checkButton.addEventListener('click', async () => {
     checkButton.disabled = true
-    output.innerHTML = await spellingCheckSrc(input.value, `${themePath.templateUrl}/ajax/spelling-check.php?siteLink=`)
+    output.innerHTML = await spellingCheckSrc(input.value, `${themePath.templateUrl}/ajax/spelling-check.php?text=`)
     checkButton.disabled = false
 })
