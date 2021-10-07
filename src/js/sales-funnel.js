@@ -19,7 +19,6 @@ const netProfitInput = document.querySelector('#net-profit')
 const applicationPriceInput = document.querySelector('#application-price')
 const clientPriceInput = document.querySelector('#client-price')
 const profitabilityInput = document.querySelector('#profitability')
-const roiInput = document.querySelector('#roi')
 
 const calcReport = (queriesCount, averageReceipt, price, ctr, applicationConversion, applicationConversionToOrder,
                     clickPrice, rejectsPercent) => {
@@ -36,13 +35,11 @@ const calcReport = (queriesCount, averageReceipt, price, ctr, applicationConvers
     const applicationPrice = Math.round(addBudget / applicationsCount)
     const clientPrice = Math.round(addBudget / salesCount)
     const profitability = (averageReceipt - price) / averageReceipt
-    const roi = calcRoi(salesPrice, applicationConversionToOrder * 100, queriesCount, clickPrice, ctr * 100,
-        rejectsPercent * 100, true, price, price, addBudget, 0).profitPerMonth
 
 
     return {
         clicksCount, interestedCount, applicationsCount, salesCount, addBudget, salesPrice, salesSum,
-        netProfit, applicationPrice, clientPrice, profitability, roi
+        netProfit, applicationPrice, clientPrice, profitability
     }
 }
 
@@ -63,7 +60,6 @@ const fillInputs = () => {
     applicationPriceInput.value = output.applicationPrice
     clientPriceInput.value = output.clientPrice
     profitabilityInput.value = output.profitability * 100
-    roiInput.value = output.roi
 }
 
 queriesCountInput.addEventListener('input', fillInputs)

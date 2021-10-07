@@ -5,7 +5,7 @@ const moveLeftButtons = document.querySelectorAll('.move-left-button')
 const moveRightButtons = document.querySelectorAll('.move-right-button')
 const removeButtons = document.querySelectorAll('.remove-button')
 const addListButtons = document.querySelectorAll('.add-list-button')
-const lists = document.querySelectorAll('.list')
+let lists = document.querySelectorAll('.list')
 
 const createList = () => {
     const list = document.createElement('div')
@@ -103,6 +103,8 @@ addListButtons.forEach((item, index) => {
 combineButton.addEventListener('click', () => {
     const phrases = []
 
+    lists = document.querySelectorAll('.list')
+
     lists.forEach(item => {
         if (item.children[0].children[1].children[0].checked)
             phrases.push(item.children[1].children[0].value.split('\n'))
@@ -129,8 +131,6 @@ combineButton.addEventListener('click', () => {
     console.log(resultCount)
 
     while (result.length < resultCount) {
-        //TODO without random
-
         let phrase = ''
 
         phrases.map(item => {
@@ -141,7 +141,7 @@ combineButton.addEventListener('click', () => {
             phrase += ` ${item[index]}`
         })
 
-        if (!result.includes(phrase)) {
+        if (!result.includes(phrase) && phrase) {
             result.push(phrase)
         }
     }

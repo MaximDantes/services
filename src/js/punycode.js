@@ -13,6 +13,8 @@ const encode = (text) => {
 }
 
 codeButton.addEventListener('click', () => {
+    output.value = ''
+
     const values = input.value.split('\n')
 
     values.map(item => {

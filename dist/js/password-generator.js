@@ -171,8 +171,15 @@ document.addEventListener('DOMContentLoaded', setSettings)
 generateButton.addEventListener('click', () => {
     passwordsOutput.innerHTML = ''
     passwordsListOutput.value = ''
-    for (let i = 0; i < +countInput.value; i++) {
-        showPassword(generatePassword([...passwordSymbolsInput.value], +lengthInput.value), i + 1)
+
+    let length = +lengthInput.value
+    if (length < 1) length = 1
+
+    let count = +countInput.value
+    if (count < 1) count = 10
+
+    for (let i = 0; i < count; i++) {
+        showPassword(generatePassword([...passwordSymbolsInput.value], length), i + 1)
     }
     output.classList.remove('hidden')
     outputReplace.classList.add('hidden')
